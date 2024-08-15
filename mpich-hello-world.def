@@ -1,0 +1,27 @@
+Bootstrap: docker
+From: rockylinux:9
+Stage: build
+
+%files
+mpi_hello_world.c /usr/local/src/mpi_hello_world.c
+
+%post
+dnf -y install mpich-devel
+/usr/lib64/mpich/bin/mpicc -o /usr/local/bin/mpi_hello_world /usr/local/src/mpi_hello_world.c \
+
+
+Bootstrap: docker
+From: rockylinux:9
+Stage: final
+
+%files from build
+/usr/local/bin/mpi_hello_world
+
+%post
+chmod +x /usr/local/bin/mpi_hello_world
+dnf install -y mpich #libgfortran
+dnf clean all
+
+%labels
+app mpi_hello_world
+mpi mpich
