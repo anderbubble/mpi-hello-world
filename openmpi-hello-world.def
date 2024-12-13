@@ -7,8 +7,7 @@ mpi_hello_world.c /usr/local/src/mpi_hello_world.c
 
 %post
 dnf -y install openmpi-devel
-/usr/lib64/openmpi/bin/mpicc -o /usr/local/bin/mpi_hello_world /usr/local/src/mpi_hello_world.c \
-
+/usr/lib64/openmpi/bin/mpicc -o /usr/local/bin/mpi_hello_world /usr/local/src/mpi_hello_world.c
 
 Bootstrap: docker
 From: rockylinux:9
@@ -19,7 +18,7 @@ Stage: final
 
 %post
 chmod +x /usr/local/bin/mpi_hello_world
-dnf install -y openmpi #libgfortran
+dnf install -y openmpi
 dnf clean all
 
 %labels

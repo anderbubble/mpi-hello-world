@@ -7,7 +7,7 @@ mpi_hello_world.c /usr/local/src/mpi_hello_world.c
 
 %post
 dnf -y install mpich-devel
-/usr/lib64/mpich/bin/mpicc -o /usr/local/bin/mpi_hello_world /usr/local/src/mpi_hello_world.c \
+/usr/lib64/mpich/bin/mpicc -o /usr/local/bin/mpi_hello_world /usr/local/src/mpi_hello_world.c
 
 
 Bootstrap: docker
@@ -19,7 +19,7 @@ Stage: final
 
 %post
 chmod +x /usr/local/bin/mpi_hello_world
-dnf install -y mpich #libgfortran
+dnf install -y mpich
 dnf clean all
 
 %labels
