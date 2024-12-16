@@ -23,4 +23,4 @@ dnf clean all
 
 %labels
 app mpi_hello_world
-mpi mpich
+mpi openmpi

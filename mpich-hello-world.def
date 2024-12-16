@@ -9,7 +9,6 @@ mpi_hello_world.c /usr/local/src/mpi_hello_world.c
 dnf -y install mpich-devel
 /usr/lib64/mpich/bin/mpicc -o /usr/local/bin/mpi_hello_world /usr/local/src/mpi_hello_world.c
 
-
 Bootstrap: docker
 From: rockylinux:9
 Stage: final
